@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from djinni.models import VacancyDjinni
+
+
+class VacancyListView(generic.ListView):
+    model = VacancyDjinni
+    template_name = "djinni/vacancies.html"
+    context_object_name = "vacancies_list"
