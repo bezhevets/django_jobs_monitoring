@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-from job_boards.models import VacancyDjinni
+from job_boards.models import Board
 
 # Register your models here.
-admin.site.register(VacancyDjinni)
+admin.site.register(Board)

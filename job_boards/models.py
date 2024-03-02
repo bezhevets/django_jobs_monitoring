@@ -1,18 +1,13 @@
 from django.db import models
-from django.utils.timezone import now
 
 
-class VacancyDjinni(models.Model):
-    title = models.CharField(max_length=255)
-    intro = models.CharField(max_length=255)
-    description = models.TextField()
-    company = models.CharField(max_length=100, null=True)
-    location = models.CharField(max_length=190, null=True)
-    employment_type = models.CharField(max_length=190, null=True)
-    experience = models.CharField(max_length=100, null=True)
-    english = models.CharField(max_length=100, null=True)
-    reviews = models.IntegerField()
-    date = models.DateTimeField(default=now)
+class Board(models.Model):
+    name = models.CharField(max_length=255)
+    url = models.URLField()
+
+    class Meta:
+        verbose_name = "Name job board"
+        verbose_name_plural = "Name job boards"
 
     def __str__(self) -> str:
-        return f"{self.company} is looking for a {self.title} with experience {self.experience}"
+        return self.name
