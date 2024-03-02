@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "user",
     "job_boards",
+    "djinni",
 ]
 
 MIDDLEWARE = [
