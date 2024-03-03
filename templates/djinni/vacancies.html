@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+  <title>Vacancies</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Vacancies list</h1>
+    {% if vacancies_list %}
+      {% for content in vacancies_list %}
+        <div class="alert alert-light">
+          <h2><strong>{{ content.title }}</strong></h2>
+          <p class="blog-post-meta">{{ content.location }} · {{ content.employment_type }} · {{ content.experience }} · {{ content.english }}</p>
+          <hr>
+          <p>{{ content.intro }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a type="button" class="btn btn-warning" href="#">View</a>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">Date: {{ content.date }}</small>
+            <small class="text-body-secondary">Reviews: {{ content.reviews }}</small>
+          </div>
+          
+        </div>
+      {% endfor %}
+    {% else %}
+    <p>Not post</p>
+    {% endif %}
+  </div>
+{% endblock %}
