@@ -41,16 +41,10 @@ def detail_vacancy(url: str):
         employment_type=employment_type,
     )
 
-    # pprint(dict(employment_type=soup.select_one(".job-additional-info--item-text").text,
-    #             experience=soup.select_one(".job-additional-info--item-text")))
-
 
 def get_correct_time(time: str) -> datetime:
-    print(time)
     naive_datetime = datetime.strptime(time, "%H:%M %d.%m.%Y")
-    print(naive_datetime)
     kiev_datetime = timezone("Europe/Kiev").localize(naive_datetime)
-    print(kiev_datetime)
     return kiev_datetime
 
 
@@ -91,7 +85,7 @@ def parser_list_vacancies():
     soup = BeautifulSoup(page, "html.parser")
 
     vacancies = soup.select(".job-list__item")
-    for vacancy in vacancies[:2]:
+    for vacancy in vacancies:
         dict_v = single_vacancy(vacancy)
         pprint(dict_v)
         vac = VacancyDjinni(**dict_v)
